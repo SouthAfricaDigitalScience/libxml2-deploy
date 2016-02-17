@@ -4,7 +4,7 @@
 module load ci
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 make check
-make tests
+#make tests
 
 make install
 
