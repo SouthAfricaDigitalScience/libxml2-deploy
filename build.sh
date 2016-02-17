@@ -5,10 +5,9 @@
 module add ci
 # Libxml2 has both a sources file and a tests file, which we need to get
 SOURCE_FILE=${NAME}-sources-${VERSION}.tar.gz
-TESTS_FILE=${NAME}-tests-${VERSION}
+TESTS_FILE=${NAME}-tests-${VERSION}.tar.gz
 mkdir -p ${WORKSPACE}
 mkdir -p ${SRC_DIR}
-mkdir -p ${SOFT_DIR}
 
 #  Download the source file
 for file in ${SOURCE_FILE} ${TESTS_FILE} ; do
