@@ -2,7 +2,7 @@
 # check-build script for libxml2
 . /etc/profile.d/modules.sh
 module load ci
-cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
+cd ${WORKSPACE}/${NAME}-${VERSION}/
 make check
 #make tests
 
