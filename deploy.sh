@@ -4,9 +4,9 @@
 echo ${SOFT_DIR}
 module add deploy
 echo ${SOFT_DIR}
-cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
+cd ${WORKSPACE}/${NAME}-${VERSION}/
 echo "All tests have passed, will now build into ${SOFT_DIR}"
-rm -rf *
+make distclean
 ./configure --prefix=${SOFT_DIR} \
 --with-zlib=${ZLIB_DIR}/lib
 make -j 2
