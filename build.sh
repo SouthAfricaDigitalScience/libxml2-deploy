@@ -3,6 +3,7 @@
 . /etc/profile.d/modules.sh
 
 module add ci
+module add zlib
 # Libxml2 has both a sources file and a tests file, which we need to get
 SOURCE_FILE=${NAME}-sources-${VERSION}.tar.gz
 TESTS_FILE=${NAME}-tests-${VERSION}.tar.gz

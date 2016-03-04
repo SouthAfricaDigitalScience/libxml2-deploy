@@ -2,6 +2,7 @@
 # check-build script for libxml2
 . /etc/profile.d/modules.sh
 module load ci
+module  add zlib
 cd ${WORKSPACE}/${NAME}-${VERSION}/
 make check
 #make tests
