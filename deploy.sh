@@ -7,7 +7,7 @@ echo ${SOFT_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}/
 echo "All tests have passed, will now build into ${SOFT_DIR}"
 rm --rf *
-../configure --prefix=${SOFT_DIR} \
+./configure --prefix=${SOFT_DIR} \
 --with-zlib=${ZLIB_DIR}/lib
 make -j 2
 make install
