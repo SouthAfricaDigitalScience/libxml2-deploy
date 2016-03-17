@@ -32,7 +32,7 @@ done
 mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/
 cd ${WORKSPACE}/${NAME}-${VERSION}/
 # just in case -
-make distclean
+# make distclean
 ./configure --prefix=${SOFT_DIR} \
 --with-zlib=${ZLIB_DIR}/lib
 make -j 2
