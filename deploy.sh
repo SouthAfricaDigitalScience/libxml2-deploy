@@ -25,7 +25,7 @@ proc ModulesHelp { } {
 }
 module add zlib
 setenv       XML2_VERSION       $VERSION
-setenv       XML2_DIR          $::env(CVMFS_DIR)/apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       XML2_DIR          $::env(CVMFS_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 prepend-path LD_LIBRARY_PATH   $::env(XML2_DIR)/lib
 prepend-path PATH              $::env(XML2_DIR)/bin
 prepend-path CFLAGS            "-I${XML2_DIR}/include"
