@@ -4,6 +4,8 @@
 module load ci
 module  add zlib
 cd ${WORKSPACE}/${NAME}-${VERSION}/
+#find  . -type l -exec rm -f {} \;
+
 make check
 #make tests
 
