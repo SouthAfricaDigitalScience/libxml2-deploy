@@ -5,7 +5,7 @@ echo ${SOFT_DIR}
 module add deploy
 module add zlib
 echo ${SOFT_DIR}
-cd ${WORKSPACE}/${NAME}-${VERSION}/
+cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 echo "All tests have passed, will now build into ${SOFT_DIR}"
 make distclean
 ./configure --prefix=${SOFT_DIR} \

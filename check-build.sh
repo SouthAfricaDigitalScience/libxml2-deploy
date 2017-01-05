@@ -3,7 +3,7 @@
 . /etc/profile.d/modules.sh
 module load ci
 module  add zlib
-cd ${WORKSPACE}/${NAME}-${VERSION}/
+cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 #find  . -type l -exec rm -f {} \;
 
 make check
@@ -25,7 +25,7 @@ proc ModulesHelp { } {
 module add zlib
 module-whatis   "$NAME $VERSION."
 setenv       XML2_VERSION       $VERSION
-setenv       XML2_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       XML2_DIR           $::env(SOFT_DIR)
 prepend-path LD_LIBRARY_PATH   $::env(XML2_DIR)/lib
 prepend-path PATH              $::env(XML2_DIR)/bin
 prepend-path CFLAGS            "-I${XML2_DIR}/include"

@@ -2,4 +2,11 @@
 
 # libxml2-deploy
 
-Build Scripts and tests for the XML library
+Build, test and deploy scripts for the [XML library](http://xmlsoft.org/) for CODE-RADE.
+
+# Versions
+
+Versions built :
+
+  - 2.9.3
+  - 2.9.4
