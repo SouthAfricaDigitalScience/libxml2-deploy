@@ -3,7 +3,9 @@
 . /etc/profile.d/modules.sh
 
 module add ci
-module add zlib
+module add xz
+module add readline
+module add python/2.7.13-gcc-${GCC_VERSION}
 # Libxml2 has both a sources file and a tests file, which we need to get
 SOURCE_FILE=${NAME}-sources-${VERSION}.tar.gz
 TESTS_FILE=${NAME}-tests-${VERSION}.tar.gz
@@ -33,6 +35,5 @@ mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 # just in case -
 # make distclean
-../configure --prefix=${SOFT_DIR} \
---with-zlib=${ZLIB_DIR}/lib
-make -j 2
+../configure --prefix=${SOFT_DIR}
+make

@@ -2,7 +2,11 @@
 # check-build script for libxml2
 . /etc/profile.d/modules.sh
 module load ci
-module  add zlib
+module add xz
+module add readline
+module  add  gcc/${GCC_VERSION}
+module add python/${PYTHON_VERSION}-gcc-${GCC_VERSION}
+
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 #find  . -type l -exec rm -f {} \;
 
