@@ -10,3 +10,13 @@ Versions built :
 
   - 2.9.3
   - 2.9.4
+
+# Dependencies
+
+LibXML is built with bindings for
+
+  * icu
+  * lzma
+  * python
+
+These modules are added as dependencies

@@ -4,6 +4,7 @@
 
 module add ci
 module add xz
+module add icu
 module add readline
 module add python/2.7.13-gcc-${GCC_VERSION}
 # Libxml2 has both a sources file and a tests file, which we need to get
@@ -35,5 +36,8 @@ mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 # just in case -
 # make distclean
-../configure --prefix=${SOFT_DIR}
+../configure --prefix=${SOFT_DIR} \
+--with-icu \
+--with-python=${PYTHONHOME} \
+--with-lzma=${LZ_DIR}
 make

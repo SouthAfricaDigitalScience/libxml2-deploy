@@ -3,6 +3,7 @@
 . /etc/profile.d/modules.sh
 module load ci
 module add xz
+module add icu
 module add readline
 module  add  gcc/${GCC_VERSION}
 module add python/${PYTHON_VERSION}-gcc-${GCC_VERSION}
@@ -10,7 +11,7 @@ module add python/${PYTHON_VERSION}-gcc-${GCC_VERSION}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 #find  . -type l -exec rm -f {} \;
 
-make check
+#make check
 #make tests
 
 make install
@@ -26,14 +27,19 @@ proc ModulesHelp { } {
     puts stderr "       This module does nothing but alert the user"
     puts stderr "       that the [module-info name] module is not available"
 }
-module add zlib
+module add xz
+module add icu
+module add readline
+module  add  gcc/$::env(GCC_VERSION)
+module add python/$::env(PYTHON_VERSION)-gcc-$::env(GCC_VERSION)
+
 module-whatis   "$NAME $VERSION."
 setenv       XML2_VERSION       $VERSION
 setenv       XML2_DIR           $::env(SOFT_DIR)
 prepend-path LD_LIBRARY_PATH   $::env(XML2_DIR)/lib
 prepend-path PATH              $::env(XML2_DIR)/bin
-prepend-path CFLAGS            "-I${XML2_DIR}/include"
-prepend-path LDFLAGS           "-L${XML2_DIR}/lib"
+prepend-path CFLAGS            "-I$::env(XML2_DIR)/include"
+prepend-path LDFLAGS           "-L$::env(XML2_DIR)/lib"
 MODULE_FILE
 ) > modules/$VERSION
 
