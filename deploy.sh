@@ -6,6 +6,7 @@ module add deploy
 module add xz
 module add readline
 module add gcc-${GCC_VERSION}
+module add  icu
 module add python/2.7.13-gcc-${GCC_VERSION}
 
 echo ${SOFT_DIR}
