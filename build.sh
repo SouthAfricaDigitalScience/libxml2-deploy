@@ -4,7 +4,7 @@
 
 module add ci
 module add xz
-module add icu/1_59-gcc-${GCC_VERSION}
+module add icu/59_1-gcc-${GCC_VERSION}
 module add readline
 module add python/2.7.13-gcc-${GCC_VERSION}
 # Libxml2 has both a sources file and a tests file, which we need to get

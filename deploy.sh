@@ -6,7 +6,7 @@ module add deploy
 module add xz
 module add readline
 module add gcc-${GCC_VERSION}
-module add icu/1_59-gcc-${GCC_VERSION}
+module add icu/59_1-gcc-${GCC_VERSION}
 module add python/2.7.13-gcc-${GCC_VERSION}
 
 echo ${SOFT_DIR}
@@ -31,7 +31,7 @@ proc ModulesHelp { } {
     puts stderr "       that the [module-info name] module is not available"
 }
 module add xz
-module add icu/1_59-gcc-${GCC_VERSION}
+module add icu/59_1-gcc-${GCC_VERSION}
 module add readline
 module  add  gcc/$::env(GCC_VERSION)
 module add python/$::env(PYTHON_VERSION)-gcc-$::env(GCC_VERSION)
