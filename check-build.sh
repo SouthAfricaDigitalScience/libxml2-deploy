@@ -3,7 +3,7 @@
 . /etc/profile.d/modules.sh
 module load ci
 module add xz
-module add icu/1_59-gcc-${GCC_VERSION}
+module add icu/59_1-gcc-${GCC_VERSION}
 module add readline
 module  add  gcc/${GCC_VERSION}
 module add python/${PYTHON_VERSION}-gcc-${GCC_VERSION}
@@ -28,7 +28,7 @@ proc ModulesHelp { } {
     puts stderr "       that the [module-info name] module is not available"
 }
 module add xz
-module add icu/1_59-gcc-${GCC_VERSION}
+module add icu/59_1-gcc-${GCC_VERSION}
 module add readline
 module  add  gcc/$::env(GCC_VERSION)
 module add python/$::env(PYTHON_VERSION)-gcc-$::env(GCC_VERSION)
