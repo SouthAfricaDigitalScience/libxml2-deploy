@@ -46,6 +46,4 @@ export LDFLAGS="$LDFLAGS -L${PYTHON_DIR}/lib"
 --with-icu \
 --with-python=${PYTHONHOME} \
 --with-lzma=${XZ_DIR}
-export ICU_LIBS="-L/data/ci-build/generic/centos6/x86_64/icu/59_1-gcc-6.3.0/lib -licui18n -licuuc -licudata"
-
-make
+export ICU_LIBS="-L/data/ci-build/generic/centos6/x86_64/icu/59_1-gcc-6.3.0/lib -licui18n -licuuc -licudata" make
