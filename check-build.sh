@@ -43,9 +43,9 @@ prepend-path LDFLAGS           "-L$::env(XML2_DIR)/lib"
 MODULE_FILE
 ) > modules/$VERSION
 
-mkdir -p ${LIBRARIES_MODULES}/${NAME}
-cp modules/$VERSION ${LIBRARIES_MODULES}/${NAME}
+mkdir -p ${LIBRARIES_MODULES}/${NAME}-gcc-${GCC_VERSION}
+cp modules/$VERSION-gcc-${GCC_VERSION} ${LIBRARIES_MODULES}/${NAME}
 
 echo "Testing module"
 module avail ${NAME}
-module add ${NAME}
+module add ${NAME}-gcc-${GCC_VERSION}
