@@ -14,9 +14,11 @@ cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 echo "All tests have passed, will now build into ${SOFT_DIR}"
 make distclean
 ICUCPPFLAGS=`icu-config --cppflags`
+export ICULIBS="-L/data/ci-build/generic/centos6/x86_64/icu/59_1-gcc-6.3.0/lib -licui18n -licuuc -licudata"
 export CPPFLAGS="$CPPFLAGS $ICUCPPFLAGS"
 export LZMA_CFLAGS="-I$XZ_DIR/include"
 export LZMA_LIBS="-L${XZ_DIR}/lib -llzma"
+export LDFLAGS="$LDFLAGS -L${PYTHON_DIR}/lib"
 ../configure --prefix=${SOFT_DIR} \
 --with-icu \
 --with-python=${PYTHONHOME} \
