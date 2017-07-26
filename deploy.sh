@@ -43,8 +43,8 @@ prepend-path PATH              $::env(XML2_DIR)/bin
 prepend-path CFLAGS            "-I$::env(XML2_DIR/include"
 prepend-path LDFLAGS           "-L$::env(XML2_DIR)/lib"
 MODULE_FILE
-) > ${LIBRARIES_MODULES}/${NAME}/${VERSION}
+) > ${LIBRARIES_MODULES}/${NAME}/${VERSION}-gcc-${GCC_VERSION}
 
 echo "Testing module"
 module avail ${NAME}
-module add ${NAME}
+module add ${NAME}/${VERSION}-gcc-${GCC_VERSION}
