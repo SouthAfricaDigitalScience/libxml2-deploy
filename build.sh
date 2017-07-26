@@ -31,7 +31,7 @@ elif [ -e ${SRC_DIR}/${file}.lock ] ; then
 else
   echo "continuing from previous builds, using source at " ${SRC_DIR}/${file}
 fi
-tar xzf  ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
+tar xzf  ${SRC_DIR}/${file} -C ${WORKSPACE} --skip-old-files
 done
 mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
@@ -41,8 +41,9 @@ ICUCPPFLAGS=`icu-config --cppflags`
 export CPPFLAGS="$CPPFLAGS $ICUCPPFLAGS"
 export LZMA_CFLAGS="-I$XZ_DIR/include"
 export LZMA_LIBS="-L${XZ_DIR}/lib -llzma"
+export LDFLAGS="$LDFLAGS -L${PYTHON_DIR}/lib"
 ../configure --prefix=${SOFT_DIR} \
 --with-icu \
 --with-python=${PYTHONHOME} \
 --with-lzma=${XZ_DIR}
-make
+export ICU_LIBS="-L/data/ci-build/generic/centos6/x86_64/icu/59_1-gcc-6.3.0/lib -licui18n -licuuc -licudata" make
