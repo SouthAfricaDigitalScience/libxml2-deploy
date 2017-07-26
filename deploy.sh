@@ -13,10 +13,15 @@ echo ${SOFT_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 echo "All tests have passed, will now build into ${SOFT_DIR}"
 make distclean
+ICUCPPFLAGS=`icu-config --cppflags`
+export CPPFLAGS="$CPPFLAGS $ICUCPPFLAGS"
+export LZMA_CFLAGS="-I$XZ_DIR/include"
+export LZMA_LIBS="-L${XZ_DIR}/lib -llzma"
 ../configure --prefix=${SOFT_DIR} \
 --with-icu \
 --with-python=${PYTHONHOME} \
---with-lzma=${LZ_DIR}
+--with-lzma=${XZ_DIR}
+
 make
 make install
 echo "Creating the modules file directory ${LIBRARIES_MODULES}"
