@@ -3,6 +3,7 @@
 . /etc/profile.d/modules.sh
 
 module add ci
+module add  zlib
 module add xz
 module add icu/59_1-gcc-${GCC_VERSION}
 module add readline
@@ -34,10 +35,14 @@ tar xzf  ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 done
 mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
-# just in case -
-# make distclean
+
+# Set flags HT needed for later
+ICUCPPFLAGS=`icu-config --cppflags`
+export CPPFLAGS="$CPPFLAGS $ICUCPPFLAGS"
+export LZMA_CFLAGS="-I$XZ_DIR/include"
+export LZMA_LIBS="-L${XZ_DIR}/lib -llzma"
 ../configure --prefix=${SOFT_DIR} \
 --with-icu \
 --with-python=${PYTHONHOME} \
---with-lzma=${LZ_DIR}
+--with-lzma=${XZ_DIR}
 make
